@@ -8,7 +8,6 @@ public interface IUserService {
    User createUser(UserRequest user);
    User getById(Long id);
    List<User> findAll();
-
    User getByUsername(String username);
    void deleteById(Long id);
 }

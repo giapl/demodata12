@@ -45,7 +45,7 @@ public class IUserServiceImpl implements IUserService {
   }
 
   @Override
-  public void  deleteById(Long id) {
+  public void deleteById(Long id) {
      iUserRepository.deleteById(id);
   }
 }
