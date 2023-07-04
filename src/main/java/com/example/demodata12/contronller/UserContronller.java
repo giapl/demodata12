@@ -21,7 +21,7 @@ public class UserContronller {
   @Autowired
   private IUserService iUserService;
   @PostMapping("/user")
-  public ResponseEntity<User> createUser(@RequestBody UserRequest user){
+  public ResponseEntity<?> createUser(@RequestBody UserRequest user){
     User user1=iUserService.createUser(user);
     return ResponseEntity.ok(user1);
   }

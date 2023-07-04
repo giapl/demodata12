@@ -14,11 +14,9 @@ public interface IUserRepository extends JpaRepository<User,Long> {
   // JPA hien thi tat ca duw lieu trong db
   @Query(value = "select *from demo.test",nativeQuery = true)
   List<User> findAll();
-
   // Jpa lay du lieu ra theo id
   @Query(value = "select * from demo.test where id= :id",nativeQuery = true)
   Optional<User> findById(@Param("id") Long id);
-
   // jpql lay du lieu ra theo username
   @Query(value = "select * from demo.test where username= :username",nativeQuery = true)
   User findByUsername(@Param("username") String username);
