@@ -51,4 +51,9 @@ public class UserContronller {
     iUserService.deleteById(id);
     return ResponseEntity.ok("dã xoa thanh cong account có id: " + id);
   }
+  @GetMapping("/search")
+  public ResponseEntity<?> getByIdAndUsername(@RequestParam Long id, String username){
+    User user2= iUserService.getByIdAndUsername(id,username);
+    return ResponseEntity.ok(user2);
+  }
 }

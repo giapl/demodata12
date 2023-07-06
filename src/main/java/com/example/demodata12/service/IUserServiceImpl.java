@@ -48,4 +48,9 @@ public class IUserServiceImpl implements IUserService {
   public void deleteById(Long id) {
     iUserRepository.deleteById(id);
   }
+
+  @Override
+  public User getByIdAndUsername(Long id, String username) {
+    return iUserRepository.findByIdAndUsername(id,username);
+  }
 }
