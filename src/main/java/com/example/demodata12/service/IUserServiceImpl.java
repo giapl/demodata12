@@ -42,7 +42,7 @@ public class IUserServiceImpl implements IUserService {
   @Override
   public User getByUsername(String username) {
     return iUserRepository.findByUsername(username);
-  }
+   }
 
   @Override
   public void deleteById(Long id) {
