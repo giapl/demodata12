@@ -35,7 +35,7 @@ public class UserContronller {
       User user = iUserService.getById(id);
       return ResponseEntity.ok(user);
     }catch (Exception e){
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("id khong ton tai");
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No id");
     }
   }
 
