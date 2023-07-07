@@ -43,7 +43,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
       http
           .authorizeRequests()
-          .requestMatchers(HttpMethod.GET, "/home").hasRole("USER")
+          .requestMatchers(HttpMethod.GET, "/home").hasAnyRole("USER","ADMIN")
           .requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
           .requestMatchers(HttpMethod.GET, "api/id").hasRole("ADMIN")
           .requestMatchers(HttpMethod.GET, "api/all").hasRole("ADMIN")
