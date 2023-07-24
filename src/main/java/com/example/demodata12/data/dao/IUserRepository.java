@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
-
+  // mấy tên hàm mà JPA có support thì không cần viết NativeQuery nữa, gọi thẳng là được.
   // JPA hien thi tat ca duw lieu trong db
   @Query(value = "select *from demo.test", nativeQuery = true)
   List<User> findAll();
