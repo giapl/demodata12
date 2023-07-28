@@ -1,4 +1,4 @@
-package com.example.demodata12.data.dao;
+package com.example.demodata12.repository;
 
 import com.example.demodata12.data.enity.User;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
+
   // mấy tên hàm mà JPA có support thì không cần viết NativeQuery nữa, gọi thẳng là được.
   // JPA hien thi tat ca duw lieu trong db
   @Query(value = "select *from demo.test", nativeQuery = true)
@@ -29,6 +30,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
   void deleteById(@Param("id") Long id);
 
   // jpa tim theo id and username
-  @Query(value = "select * from demo.test where id= :id and username= :username",nativeQuery = true)
+  @Query(value = "select * from demo.test where id= :id and username= :username", nativeQuery = true)
   User findByIdAndUsername(@Param("id") Long id, @Param("username") String username);
 }

@@ -1,6 +1,6 @@
 package com.example.demodata12.service;
 
-import com.example.demodata12.data.dao.IUserRepository;
+import com.example.demodata12.repository.IUserRepository;
 import com.example.demodata12.data.enity.User;
 import com.example.demodata12.data.request.UserRequest;
 import java.util.List;

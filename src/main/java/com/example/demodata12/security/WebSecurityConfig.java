@@ -50,7 +50,7 @@ public class WebSecurityConfig {
           .requestMatchers(HttpMethod.GET, "/api/all").hasRole("ADMIN")
           .requestMatchers(HttpMethod.GET, "/api/username").hasRole("ADMIN")
           .requestMatchers(HttpMethod.GET, "/api/search").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.POST, "/api/user").hasRole("ADMIN")
+          .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
           .requestMatchers(HttpMethod.DELETE, "/api/delete").hasRole("ADMIN")
           .anyRequest()
           .authenticated()
