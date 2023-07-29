@@ -42,21 +42,36 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-      http
-          .authorizeRequests()
-          .requestMatchers(HttpMethod.GET, "/home").hasAnyRole("USER","ADMIN")
-          .requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.GET, "/api/id").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.GET, "/api/all").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.GET, "/api/username").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.GET, "/api/search").hasRole("ADMIN")
-          .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
-          .requestMatchers(HttpMethod.DELETE, "/api/delete").hasRole("ADMIN")
-          .anyRequest()
-          .authenticated()
-          .and()
-          .httpBasic(Customizer.withDefaults());
-      return http.build();
+//      http
+//          .authorizeRequests()
+//          .requestMatchers(HttpMethod.GET, "/home").hasAnyRole("USER","ADMIN")
+//          .requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
+//          .requestMatchers(HttpMethod.GET, "/api/id").hasRole("ADMIN")
+//          .requestMatchers(HttpMethod.GET, "/api/all").hasRole("ADMIN")
+//          .requestMatchers(HttpMethod.GET, "/api/username").hasRole("ADMIN")
+//          .requestMatchers(HttpMethod.GET, "/api/search").hasRole("ADMIN")
+//          .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
+//          .requestMatchers(HttpMethod.DELETE, "/api/delete").hasRole("ADMIN")
+//          .anyRequest()
+//          .authenticated()
+//          .and()
+//          .httpBasic(Customizer.withDefaults());
+//      return http.build();
+
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(requests -> requests
+                        .requestMatchers(HttpMethod.GET, "/home").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/id").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/all").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/username").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/search").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/delete").hasRole("ADMIN")
+                        .anyRequest().denyAll())
+                .httpBasic(Customizer.withDefaults());
+        return http.build();
     }
   }
 }

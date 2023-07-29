@@ -24,10 +24,10 @@ public interface IUserRepository extends JpaRepository<User, Long> {
   // jpql lay du lieu ra theo username
   @Query(value = "select * from demo.test where username= :username", nativeQuery = true)
   User findByUsername(@Param("username") String username);
-
-  // jpa xoa du lieu theo id
-  @Query(value = "delete from demo.test where id= :id", nativeQuery = true)
-  void deleteById(@Param("id") Long id);
+//
+//  // jpa xoa du lieu theo id
+//  @Query(value = "delete from demo.test where id= :id", nativeQuery = true)
+//  void deleteById(@Param("id") Long id);
 
   // jpa tim theo id and username
   @Query(value = "select * from demo.test where id= :id and username= :username", nativeQuery = true)
